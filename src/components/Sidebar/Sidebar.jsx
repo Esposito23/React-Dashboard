@@ -50,39 +50,32 @@ class Sidebar extends Component {
         data-color={this.props.color}
         data-image={this.props.image}
       >
-          {this.props.hasImage ? (
-            <div className="sidebar-background" style={sidebarBackground} />
-          ) : (
+        {this.props.hasImage ? (
+          <div className="sidebar-background" style={sidebarBackground} />
+        ) : (
             null
           )}
         <div className="logo">
-          <a
-            href="https://b4chem.com/"
-            className="simple-text logo-mini"
-          >
+          <a href="https://b4chem.com/" className="simple-text logo-mini">
             <div className="logo-img">
-              <img src={logo}  />
-            </div>
+              <img src={logo} alt="logo_image" />
+            </div></a>
+          <a href="https://b4chem.com/" className="simple-text logo-normal">
+            go to B4chem
           </a>
-          <a
-            href="https://b4chem.com/"
-            className="simple-text logo-normal"
-          >
-            go to b4chem
-          </a>
+
         </div>
         <div className="sidebar-wrapper">
           <ul className="nav">
             {this.state.width <= 991 ? <AdminNavbarLinks /> : null}
-            {this.props.routes.map((prop) => {
+            {this.props.routes.map((prop, key) => {
               if (!prop.redirect)
                 return (
-                  <li>
+                  <li key={key}>
                     <NavLink
                       to={prop.layout + prop.path}
                       className="nav-link"
-                      activeClassName="active"
-                    >
+                      activeClassName="active">
                       <i className={prop.icon} />
                       <p>{prop.name}</p>
                     </NavLink>
