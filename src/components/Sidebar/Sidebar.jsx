@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import AdminNavbarLinks from "../Navbars/AdminNavbarLinks.jsx";
 
-import logo from "assets/img/logoB4.png";
+import logo from "assets/img/btm.png";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -34,12 +34,12 @@ class Sidebar extends Component {
             null
           )}
         <div className="logo">
-          <a href="https://b4chem.com/" className="simple-text logo-mini">
+          <a href="https://www.biotecnomed.it/" className="simple-text logo-mini">
             <div className="logo-img">
               <img src={logo} alt="logo_image" />
             </div></a>
-          <a href="https://b4chem.com/" className="simple-text logo-normal">
-            go to B4chem
+          <a href="https://www.biotecnomed.it/" className="simple-text logo-normal">
+            biotecnomed
           </a>
 
         </div>
