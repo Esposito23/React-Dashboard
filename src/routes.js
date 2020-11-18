@@ -6,6 +6,7 @@ import Icons from "views/Icons.jsx";
 import Maps from "views/Maps.jsx";
 import Notifications from "views/Notifications.jsx";
 
+
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -24,7 +25,7 @@ const dashboardRoutes = [
   {
     path: "/table",
     name: "Table List",
-    icon: "pe-7s-note2",
+    icon: "pe-7s-plugin",
     component: TableList,
     layout: "/admin"
   },

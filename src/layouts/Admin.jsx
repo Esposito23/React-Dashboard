@@ -13,9 +13,8 @@ import image from "assets/img/superPeter.png";
 
 class Admin extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
-      _notificationSystem: null,
       image: image,
       color: "black",
       hasImage: true,
@@ -55,37 +54,19 @@ class Admin extends Component {
         return routes[i].name;
       }
     }
-    return "Brand"; //Se il link non esiste?
+    return "Link non disponibile tra i routes"; //Se il link non esiste?
   };
-
-
-// del pacchetto da pagare?
-
-  // handleImageClick = image => {
-  //   this.setState({ image: image });
-  // };
-  // handleColorClick = color => {
-  //   this.setState({ color: color });
-  // };
-  // handleHasImage = hasImage => {
-  //   this.setState({ hasImage: hasImage });
-  // };
-  // handleFixedClick = () => {
-  //   if (this.state.fixedClasses === "dropdown") {
-  //     this.setState({ fixedClasses: "dropdown show-dropdown open" });
-  //   } else {
-  //     this.setState({ fixedClasses: "dropdown" });
-  //   }
-  // };
 
   componentDidUpdate(e) {
     if (
+      //chiude la navbar dopo click link se la risoluzione bassa
       window.innerWidth < 993 &&
       e.history.location.pathname !== e.location.pathname &&
       document.documentElement.className.indexOf("nav-open") !== -1
     ) {
       document.documentElement.classList.toggle("nav-open");
     }
+    // torna in testa alla pagina una volta cliccato il link
     if (e.history.action === "PUSH") {
       document.documentElement.scrollTop = 0;
       document.scrollingElement.scrollTop = 0;
@@ -96,17 +77,17 @@ class Admin extends Component {
     return (
       <div className="wrapper">
         <Sidebar {...this.props}
-
           routes={routes}
           image={this.state.image}
           color={this.state.color}
-          hasImage={this.state.hasImage} />
-          
+          hasImage={this.state.hasImage} 
+          />
+
         <div id="main-panel" className="main-panel" ref="mainPanel">
-          <AdminNavbar 
-          {...this.props} 
-          // Nome estratto della pagina che si guarda
-          brandText={this.getBrandText(this.props.location.pathname)}  />
+          <AdminNavbar
+            {...this.props}
+            // Nome estratto della pagina che si guarda
+            brandText={this.getBrandText(this.props.location.pathname)} />
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />
 
@@ -117,3 +98,4 @@ class Admin extends Component {
 }
 
 export default Admin;
+
