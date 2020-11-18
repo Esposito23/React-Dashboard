@@ -43,7 +43,6 @@ class Admin extends Component {
     });
   };
 
-
   getBrandText = path => {
     for (let i = 0; i < routes.length; i++) {
       if (
@@ -90,7 +89,6 @@ class Admin extends Component {
             brandText={this.getBrandText(this.props.location.pathname)} />
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />
-
         </div>
       </div>
     );
