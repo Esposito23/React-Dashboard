@@ -493,12 +493,12 @@ const iconsArray = [
 //
 // Data for Pie Chart
 var dataPie = {
-  labels: ["40%", "20%", "40%"],
-  series: [40, 20, 40]
+  labels: ["50%", "20%", "30%"],
+  series: [50, 20, 30]
 };
 var legendPie = {
-  names: ["Open", "Bounce", "Unsubscribe"],
-  types: ["info", "danger", "warning"]
+  names: ["Pippo", "Pluto", "Paperino"],
+  types: ["warning", "danger", "info"]
 };
 
 // Data for Line Chart
@@ -521,13 +521,13 @@ var dataSales = {
 };
 var optionsSales = {
   low: 0,
-  high: 800,
-  showArea: false,
+  high: 700,
+  showArea: true,
   height: "245px",
   axisX: {
     showGrid: false
   },
-  lineSmooth: true,
+  lineSmooth: false,
   showLine: true,
   showPoint: true,
   fullWidth: true,
@@ -569,8 +569,8 @@ var dataBar = {
     "Dec"
   ],
   series: [
-    [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-    [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
+    [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 400],
+    [10, 34, 34, 55, 84, 23, 54, 87, 8, 100, 2, 2]
   ]
 };
 var optionsBar = {
@@ -594,7 +594,7 @@ var responsiveBar = [
   ]
 ];
 var legendBar = {
-  names: ["Tesla Model S", "BMW 5 Series"],
+  names: ["Panda 4x4 Diesel", "Jeep Compass Hybrid"],
   types: ["info", "danger"]
 };
 

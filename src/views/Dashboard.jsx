@@ -88,14 +88,15 @@ class Dashboard extends Component {
               />
             </Col>
           </Row>
+
           <Row>
             <Col md={8}>
               <Card
                 statsIcon="fa fa-history"
                 id="chartHours"
-                title="Users Behavior"
-                category="24 Hours performance"
-                stats="Updated 3 minutes ago"
+                title="Andamento visite"
+                category="Nelle ultime ore"
+                stats="Aggiornato ora"
                 content={
                   <div className="ct-chart">
                     <ChartistGraph
@@ -114,9 +115,9 @@ class Dashboard extends Component {
             <Col md={4}>
               <Card
                 statsIcon="fa fa-clock-o"
-                title="Email Statistics"
-                category="Last Campaign Performance"
-                stats="Campaign sent 2 days ago"
+                title="Torta"
+                category="al cioccolato"
+                stats="dolce un po salato"
                 content={
                   <div
                     id="chartPreferences"
@@ -131,13 +132,12 @@ class Dashboard extends Component {
               />
             </Col>
           </Row>
-
           <Row>
             <Col md={6}>
               <Card
                 id="chartActivity"
-                title="2014 Sales"
-                category="All products including Taxes"
+                title="Vendite Panda / Jeep Compass"
+                category="Reseconto ultimi mesi"
                 stats="Data information certified"
                 statsIcon="fa fa-check"
                 content={
@@ -158,9 +158,9 @@ class Dashboard extends Component {
 
             <Col md={6}>
               <Card
-                title="Tasks"
-                category="Backend development"
-                stats="Updated 3 minutes ago"
+                title="Lista della spesa"
+                category="Da fare al Lidl"
+                stats="Ultimo aggiornamento 3 minuti"
                 statsIcon="fa fa-history"
                 content={
                   <div className="table-full-width">
