@@ -35,7 +35,7 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Company",
-                          defaultValue: "Creative Code Inc.",
+                          defaultValue: "BioTecnoMed",
                           disabled: true
                         },
                         {
@@ -43,7 +43,7 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Username",
-                          defaultValue: "michael23"
+                          defaultValue: "suca"
                         },
                         {
                           label: "Email address",
@@ -61,14 +61,14 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "First name",
-                          defaultValue: "Mike"
+                          defaultValue: "Michele"
                         },
                         {
                           label: "Last name",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Last name",
-                          defaultValue: "Andrew"
+                          defaultValue: "Giordano"
                         }
                       ]}
                     />
@@ -81,7 +81,7 @@ class UserProfile extends Component {
                           bsClass: "form-control",
                           placeholder: "Home Adress",
                           defaultValue:
-                            "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                            "Cazzi miei"
                         }
                       ]}
                     />
@@ -93,14 +93,14 @@ class UserProfile extends Component {
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "City",
-                          defaultValue: "Mike"
+                          defaultValue: "suca"
                         },
                         {
                           label: "Country",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Country",
-                          defaultValue: "Andrew"
+                          defaultValue: "suca"
                         },
                         {
                           label: "Postal Code",
@@ -120,13 +120,13 @@ class UserProfile extends Component {
                             componentClass="textarea"
                             bsClass="form-control"
                             placeholder="Here can be your description"
-                            defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
+                            defaultValue="A che cazzo serve il placeholder?"
                           />
                         </FormGroup>
                       </Col>
                     </Row>
                     <Button bsStyle="info" pullRight fill type="submit">
-                      Update Profile
+                      Aggiorna il profilo
                     </Button>
                     <div className="clearfix" />
                   </form>
@@ -137,15 +137,13 @@ class UserProfile extends Component {
               <UserCard
                 bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
                 avatar={avatar}
-                name="Mike Andrew"
-                userName="michael24"
+                name="Ciccio Formaggio"
+                userName="BigCheese"
                 description={
                   <span>
-                    "Lamborghini Mercy
+                    Pecorino
                     <br />
-                    Your chick she so thirsty
-                    <br />
-                    I'm in that two seat Lambo"
+                    Grana
                   </span>
                 }
                 socials={
