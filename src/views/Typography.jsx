@@ -17,11 +17,13 @@ class Typography extends Component {
                 content={
                   <div>
                     <div className="typo-line">
-                      <h1>
+                      <h1 >
+
                         <p className="category">Header 1</p>Light Bootstrap
                         Table Heading{" "}
                       </h1>
                     </div>
+
 
                     <div className="typo-line">
                       <h2>

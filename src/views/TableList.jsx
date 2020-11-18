@@ -21,6 +21,7 @@ class TableList extends Component {
                 content={
                   <Table striped hover>
                     <thead>
+                      
                       <tr>
                         {thArray.map((prop, key) => {
                           return <th key={key}>{prop}</th>;
