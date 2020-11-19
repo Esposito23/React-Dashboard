@@ -57,7 +57,7 @@ class Dashboard extends Component {
               <StatsCard
                 bigIcon={<i className="pe-7s-graph1 text-danger" />}
                 statsText="Bugs / Errors"
-                statsValue="364057234798"
+                statsValue="364034798"
                 statsIcon={<i className="fa fa-clock-o" />}
                 statsIconText="Nei 5 minuti precedenti"
               />
