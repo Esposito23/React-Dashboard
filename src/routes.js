@@ -1,0 +1,71 @@
+import Dashboard from "views/Dashboard.jsx";
+import UserProfile from "views/UserProfile.jsx";
+import TableList from "views/TableList.jsx";
+import Typography from "views/Typography.jsx";
+import Datatable from "views/Datatable.jsx";
+import Reset from "views/Account.jsx";
+
+const dashboardRoutes = [
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: "pe-7s-graph",
+    component: Dashboard,
+    layout: "/admin"
+  },
+
+  {
+    path: "/user",
+    name: "User Profile",
+    icon: "pe-7s-user",
+    component: UserProfile,
+    layout: "/admin"
+  },
+  {
+    path: "/table",
+    name: "Table List",
+    icon: "pe-7s-plugin",
+    component: TableList,
+    layout: "/admin"
+  },
+  {
+    path: "/typography",
+    name: "Typography",
+    icon: "pe-7s-news-paper",
+    component: Typography,
+    layout: "/admin"
+  },
+  {
+    path: "/dataTabel",
+    name: "Prova DataTable",
+    icon: "pe-7s-joy",
+    component: Datatable,
+    layout: "/admin"
+  },
+  {
+    path: "/reset",
+    name: "Reset Password",
+    icon: "pe-7s-lock",
+    component: Reset,
+    layout: "/admin"
+  }  
+
+  ,
+  {
+    path: "/dashboard",
+    name: "FreeDashBoard",
+    icon: "pe-7s-graph",
+    component: Dashboard,
+    layout: "/free"
+  },
+
+  {
+    path: "/typography",
+    name: "Typography",
+    icon: "pe-7s-news-paper",
+    component: Typography,
+    layout: "/free"
+  }
+];
+
+export default dashboardRoutes;
