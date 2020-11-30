@@ -4,6 +4,7 @@ import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
 import Datatable from "views/Datatable.jsx";
 import Reset from "views/Account.jsx";
+import Firebase from 'views/FireBaseData.jsx'
 
 const dashboardRoutes = [
   {
@@ -48,9 +49,14 @@ const dashboardRoutes = [
     icon: "pe-7s-lock",
     component: Reset,
     layout: "/admin"
-  }  
-
-  ,
+  },
+  {
+    path: "/data",
+    name: "Firebase_data",
+    icon: "pe-7s-piggy",
+    component: Firebase,
+    layout: "/admin"
+  },
   {
     path: "/dashboard",
     name: "FreeDashBoard",
