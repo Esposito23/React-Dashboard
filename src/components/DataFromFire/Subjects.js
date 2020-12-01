@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
 import Fire from 'firebase'
 
+
 createTheme('mioTema', {
   text: {
     primary: 'black',
@@ -23,57 +24,71 @@ class App extends Component {
     }
   }
 
+  Stampa = (state) => {
+    console.log(state.key)
+  }
 
   componentWillMount() {
     this.getUsers()
   }
 
   getUsers() {
-    let users = []
-    Fire.database().ref(`subjects/`).once('value', snapshot => {
+    var users = [];
+
+    Fire.database().ref(`subjects/`).on('value' ,snapshot => {
       snapshot.forEach(snap => {
-        users.push(snap.val())
+        users.push({
+          name : snap.val().name,
+          age : snap.val().age,
+          gender : snap.val().gender,
+          key : snap.key
+        });
+
       })
-      this.setState({
-        users
-      })
+      this.setState({users : users});
     })
   }
+
+
+    
+    
+  
   render() {
-    const columns =
-      [
-        {
-          name: 'name',
-          selector: 'name',
-          sortable: true
-        },
-        {
-          name: 'gender',
-          selector: 'gender',
-          sortable: true
-        },
-        {
-          name: 'Eta',
-          selector: 'age',
-          sortable: true
-        }
-      ]
+      const columns =
+        [
+          {
+            name: 'name',
+            selector: 'name',
+            sortable: true
+          },
+          {
+            name: 'gender',
+            selector: 'gender',
+            sortable: true
+          },
+          {
+            name: 'Eta',
+            selector: 'age',
+            sortable: true
+          }
+        ]
 
-    return (
+    return(
       <div>
-        <div>
-
-          <DataTable
-            paginationComponentOptions={{ noRowsPerPage: true }}
-            title="List Subjects"
-            pagination={bool}
-            paginationPerPage={nRows}
-            theme="mioTema"
-            data={this.state.users}
-            columns={columns}
-          />
-        </div>
-      </div>
+    <div>
+      <DataTable
+        paginationComponentOptions={{ noRowsPerPage: true }}
+        title="List Subjects"
+        pagination={bool}
+        paginationPerPage={nRows}
+        theme="mioTema"
+        data={this.state.users}
+        columns={columns}
+        expandableRows={bool}
+        onRowClicked={this.Stampa}
+        />
+    </div>
+      </div >
     )
   }
 }

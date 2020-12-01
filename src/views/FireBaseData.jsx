@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DataFromFire from '../components/DataFromFire/Subjects'
-
+// import SessionBySub from '../components/DataFromFire/SessionBySub'
 export class FireBaseData extends Component {
 
 
@@ -10,8 +10,6 @@ export class FireBaseData extends Component {
             <div>
                 <DataFromFire />
                 <hr />
-                {/* <DataFromFire /> */}
-
             </div>
         )
     }
