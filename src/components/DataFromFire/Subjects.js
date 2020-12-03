@@ -69,13 +69,7 @@ class App extends Component {
             sortable: true
           }
         ]
-
-        const ExpanableComponent = ({data}) =>
-        // <DataTable data={data} {...props}/>
-        <div>{data.key}</div>
-      
-
-
+  
     return(
       <div>
     <div>
@@ -88,6 +82,7 @@ class App extends Component {
         data={this.state.users}
         columns={columns}
         expandableRows={bool}
+        expandOnRowClicked
         expandableRowsComponent= {<Prova />}
         />
     </div>
