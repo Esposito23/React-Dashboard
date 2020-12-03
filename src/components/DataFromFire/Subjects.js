@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
 import Fire from 'firebase'
-
+import Prova from './Prova'
 
 createTheme('mioTema', {
   text: {
@@ -24,9 +24,6 @@ class App extends Component {
     }
   }
 
-  Stampa = (state) => {
-    console.log(state.key)
-  }
 
   componentWillMount() {
     this.getUsers()
@@ -73,19 +70,25 @@ class App extends Component {
           }
         ]
 
+        const ExpanableComponent = ({data}) =>
+        // <DataTable data={data} {...props}/>
+        <div>{data.key}</div>
+      
+
+
     return(
       <div>
     <div>
       <DataTable
         paginationComponentOptions={{ noRowsPerPage: true }}
-        title="List Subjects"
+        title="Lista soggetti"
         pagination={bool}
         paginationPerPage={nRows}
         theme="mioTema"
         data={this.state.users}
         columns={columns}
         expandableRows={bool}
-        onRowClicked={this.Stampa}
+        expandableRowsComponent= {<Prova />}
         />
     </div>
       </div >
@@ -94,3 +97,17 @@ class App extends Component {
 }
 
 export default App
+
+
+
+
+
+// export default function MyDataTable({data, ...props}) {
+//     return <Datatable 
+//         expandableRows
+//         expandableRowsComponent={<MyDataTable className="ml-3"/>}
+//         noTableHead={!!data}
+//         noHeader={!!data}
+//         {...props}
+//     />
+// }
