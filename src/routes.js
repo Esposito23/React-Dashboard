@@ -5,7 +5,7 @@ import Typography from "views/Typography.jsx";
 import Datatable from "views/Datatable.jsx";
 import Reset from "views/Account.jsx";
 import Firebase from 'views/FireBaseData.jsx'
-
+import Session from "components/DataFromFire/Session"
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -71,6 +71,12 @@ const dashboardRoutes = [
     icon: "pe-7s-news-paper",
     component: Typography,
     layout: "/free"
+  },
+
+  {
+    path: "/session",
+    component: Session,
+    layout: "/admin"
   }
 ];
 
