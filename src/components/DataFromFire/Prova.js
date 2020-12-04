@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Fire from 'firebase'
+import Moment from 'react-moment'
+import 'moment-timezone'
+
 
 
 
@@ -21,9 +24,7 @@ export class Prova extends Component {
             snapshot.forEach(snap => {
                 session.push({
                     key: snap.key,
-                    data: snap.val().start_time.date,
-                    mese: snap.val().start_time.month,
-                    anno: snap.val().start_time.year
+                    data: snap.val().start_time.time
                 });
             })
             this.setState({ session: session });
@@ -39,7 +40,7 @@ export class Prova extends Component {
                         <hr />
                         {this.state.session.map(k =>
                             <li key={k.key}>
-                                Esame eseguito il {k.data} / {k.mese} / {k.anno} , La chiave esame {k.key}
+                                <Moment tz='Europe/Rome'  format="DD/MM/YY hh:mm">{k.data}</Moment>
                             </li>
                         )}
                     </ul>
