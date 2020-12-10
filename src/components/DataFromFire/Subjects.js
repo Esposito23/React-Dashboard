@@ -43,6 +43,8 @@ class App extends Component {
 
       })
       this.setState({users : users});
+      console.log(this.state.users)
+
     })
   }
 
