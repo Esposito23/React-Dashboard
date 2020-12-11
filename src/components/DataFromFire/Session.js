@@ -148,7 +148,7 @@ export class Session extends Component {
                 </div>
                 <div 
                 style={{ boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
-                    <Tabs showModalButton={false}>
+                    <Tabs showModalButton={false}  >
                         <TabList>
                             <Tab><h4>Type 0</h4></Tab>
                             <Tab><h4>Type 1</h4></Tab>
@@ -158,7 +158,7 @@ export class Session extends Component {
                         </TabList>
                         <PanelList>
                             <Panel>
-                                <DataTableExtensions {...tableData.tipo0}  >
+                                <DataTableExtensions {...tableData.tipo0} print={false} >
                                     <DataTable
                                         paginationComponentOptions={{ noRowsPerPage: true }}
                                         filter
