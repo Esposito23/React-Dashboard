@@ -100,9 +100,7 @@ export class Session extends Component {
         // console.log(this.state.gsr)
     }
 
-
     render() {
-
 
         const tableData = {
             tipo0: {
@@ -130,7 +128,8 @@ export class Session extends Component {
 
         return (
             <div style={{ paddingLeft: 30, paddingRight: 30 }}>
-                <div style={{ paddingTop: 20 }}>
+                <div 
+                style={{ paddingTop: 20 }}>
                     <UserCard
                         bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
                         avatar={avatar}
@@ -142,11 +141,13 @@ export class Session extends Component {
                             </p>}
                     />
                 </div>
-                <div style={{ textAlign: 'center', background: 'white', boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
+                <div 
+                style={{ textAlign: 'center', background: 'white', boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
                     <h3 className='pe-7s-clock'> Inizio esame <Moment tz='Europe/Rome' format="DD/MM/YY hh:mm">{this.state.info.start}</Moment> </h3><br />
                     <h3 className='pe-7s-less'> Durata esame <Moment tz='Europe/Rome' format="hh:mm">{this.state.info.end - this.state.info.start}</Moment></h3><hr />
                 </div>
-                <div style={{ boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
+                <div 
+                style={{ boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
                     <Tabs showModalButton={false}>
                         <TabList>
                             <Tab><h4>Type 0</h4></Tab>
@@ -183,7 +184,7 @@ export class Session extends Component {
                                     <DataTable
                                         paginationComponentOptions={{ noRowsPerPage: true }}
                                         filter
-                                        title="Lista tre"
+                                        title="Lista due"
                                         pagination={bool}
                                         paginationPerPage={nRows}
                                         theme="mioTema"
@@ -219,24 +220,10 @@ export class Session extends Component {
 
 
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div style={{ textAlign: 'center', background: 'white', boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
+                <div 
+                style={{ textAlign: 'center', background: 'white', boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
                     <h1> Ci son anche io</h1>
                 </div>
-
             </div >
 
         )
