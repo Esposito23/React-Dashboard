@@ -1,35 +1,38 @@
 import { UserCard } from "components/UserCard/UserCard.jsx";
 import React, { Component } from 'react'
 import avatar from "assets/img/faces/face-1.jpg";
-import MaterialTable from 'material-table';
-
-// import DataTable, { createTheme } from 'react-data-table-component';
+import DataTable, { createTheme } from 'react-data-table-component';
+import DataTableExtensions from 'react-data-table-component-extensions';
+import 'react-data-table-component-extensions/dist/index.css';
 import Fire from 'firebase'
 import Moment from 'react-moment'
 import 'moment-timezone'
+import { Tabs, TabList, Tab, PanelList, Panel } from 'react-tabtab';
 
+import { columns0, columns1, columns2, columns3, columns4 } from './Columns'
 
+createTheme('mioTema', {
+    text: {
+        primary: 'black',
+    },
+    background: {
+        default: 'white',
+    }
+});
 
-
-// createTheme('mioTema', {
-//     text: {
-//         primary: 'black',
-//     },
-//     background: {
-//         default: 'white',
-//     }
-// });
-
-// const nRows = 3
-// const bool = true
-
-
+const nRows = 5
+const bool = true
 
 
 export class Session extends Component {
     constructor(props) {
         super()
         this.state = {
+            type0: [],
+            type1: [],
+            type2: [],
+            type3: [],
+            type4: [],
             info: [],
             gsr: []
 
@@ -37,8 +40,12 @@ export class Session extends Component {
     }
 
     componentDidMount() {
-
         var session = [];
+        var type0 = [];
+        var type1 = [];
+        var type2 = [];
+        var type3 = [];
+        var type4 = [];
         Fire.database().ref("sessions/" + this.props.history.location.state.keySess).once('value', snapshot => {
             session.push({
 
@@ -48,9 +55,29 @@ export class Session extends Component {
                 events: snapshot.child('events').val()
 
             })
+            for (let i in session[0].tests) {
+                if (session[0].tests[i].type === 0) {
+                    type0.push(session[0].tests[i])
+                }
+                else if (session[0].tests[i].type === 1) {
+                    type1.push(session[0].tests[i])
+                }
+                else if (session[0].tests[i].type === 2) {
+                    type2.push(session[0].tests[i])
+                }
+                else if (session[0].tests[i].type === 3) {
+                    type3.push(session[0].tests[i])
+                }
+                else {
+                    type4.push(session[0].tests[i])
+                }
 
-            this.setState({ info: session[0] })
-            console.log(this.state.info)
+            }
+
+            this.setState({
+                type0: type0, type1: type1,
+                type2: type2, type3: type3, type4: type4, info: session[0]
+            })
         })
     }
 
@@ -75,68 +102,35 @@ export class Session extends Component {
 
 
     render() {
-        // const columns =
-        //     [
-        //         {
-        //             name: 'Complete',
-        //             selector: 'completed',
-        //             cell: row => (row.completed === true ? <div>True</div> : <div>False</div>)
 
-        //         },
-        //         {
-        //             name: 'Confirm',
-        //             selector: 'confirm',
-        //             sortable: true,
-        //             cell: row => (row.confirm === true ? <div>True</div> : <div>False</div>)
 
-        //         },
-        //         {
-        //             name: 'Fake',
-        //             selector: 'fake',
-        //             sortable: true,
-        //             cell: row => (row.fake === true ? <div>True</div> : <div>False</div>)
+        const tableData = {
+            tipo0: {
+                columns: columns0,
+                data: this.state.type0
+            },
+            tipo1: {
+                columns: columns1,
+                data: this.state.type1
+            },
+            tipo2: {
+                columns: columns2,
+                data: this.state.type2
+            },
+            tipo3: {
+                columns: columns3,
+                data: this.state.type3
+            },
+            tipo4: {
+                columns: columns4,
+                data: this.state.type4
+            }
 
-        //         },
-        //         {
-        //             name: 'Feedback',
-        //             selector: 'feedback',
-        //             sortable: true,
-
-        //         },
-        //         {
-        //             name: 'Start',
-        //             selector: 'start',
-        //             sortable: true,
-        //             cell: row => (<Moment tz='Europe/Rome' format="hh:mm:ss">{row.start}</Moment>)
-        //         },
-        //         {
-        //             name: 'Stop',
-        //             selector: 'stop',
-        //             sortable: true,
-        //             cell: row => (<Moment tz='Europe/Rome' format="hh:mm:ss">{row.stop}</Moment>)
-        //         },
-        //         {
-        //             name: 'Touch_event',
-        //             selector: 'touche_event',
-        //             sortable: true
-        //         },
-        //         {
-        //             name: 'Type',
-        //             selector: 'type',
-        //             sortable: true
-        //         },
-        //         {
-        //             name: 'Valid',
-        //             selector: 'valid',
-        //             sortable: true,
-        //             cell: row => (row.valid === true ? <div>True</div> : <div>False</div>)
-
-        //         },
-        //     ]
+        };
 
         return (
-            <div>
-                <div className='card'>
+            <div style={{ paddingLeft: 30, paddingRight: 30 }}>
+                <div style={{ paddingTop: 20 }}>
                     <UserCard
                         bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
                         avatar={avatar}
@@ -148,47 +142,100 @@ export class Session extends Component {
                             </p>}
                     />
                 </div>
-                <div className='cdescription text-center card'>
-                    <hr />
+                <div style={{ textAlign: 'center', background: 'white', boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
                     <h3 className='pe-7s-clock'> Inizio esame <Moment tz='Europe/Rome' format="DD/MM/YY hh:mm">{this.state.info.start}</Moment> </h3><br />
                     <h3 className='pe-7s-less'> Durata esame <Moment tz='Europe/Rome' format="hh:mm">{this.state.info.end - this.state.info.start}</Moment></h3><hr />
                 </div>
+                <div style={{ boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
+                    <Tabs showModalButton={false}>
+                        <TabList>
+                            <Tab><h4>Type 0</h4></Tab>
+                            <Tab><h4>Type 1</h4></Tab>
+                            <Tab><h4>Type 2</h4></Tab>
+                            <Tab><h4>Type 3</h4></Tab>
+                            <Tab><h4>Type 4</h4></Tab>
+                        </TabList>
+                        <PanelList>
+                            <Panel>
+                                <DataTableExtensions {...tableData.tipo0}  >
+                                    <DataTable
+                                        paginationComponentOptions={{ noRowsPerPage: true }}
+                                        filter
+                                        title="Lista zero"
+                                        pagination={bool}
+                                        paginationPerPage={nRows}
+                                        theme="mioTema"
+                                    />
+                                </DataTableExtensions></Panel>
+                            <Panel>
+                                <DataTableExtensions {...tableData.tipo1}  >
+                                    <DataTable
+                                        paginationComponentOptions={{ noRowsPerPage: true }}
+                                        filter
+                                        title="Lista uno"
+                                        pagination={bool}
+                                        paginationPerPage={nRows}
+                                        theme="mioTema"
+                                    />
+                                </DataTableExtensions></Panel>
+                            <Panel>
+                                <DataTableExtensions {...tableData.tipo2}  >
+                                    <DataTable
+                                        paginationComponentOptions={{ noRowsPerPage: true }}
+                                        filter
+                                        title="Lista tre"
+                                        pagination={bool}
+                                        paginationPerPage={nRows}
+                                        theme="mioTema"
+                                    />
+                                </DataTableExtensions>
+                            </Panel>
+                            <Panel>
+                                <DataTableExtensions {...tableData.tipo3}  >
+                                    <DataTable
+                                        paginationComponentOptions={{ noRowsPerPage: true }}
+                                        filter
+                                        title="Lista tre"
+                                        pagination={bool}
+                                        paginationPerPage={nRows}
+                                        theme="mioTema"
+                                    />
+                                </DataTableExtensions></Panel>
+                            <Panel>
+                                <DataTableExtensions {...tableData.tipo4}  >
+                                    <DataTable
+                                        paginationComponentOptions={{ noRowsPerPage: true }}
+                                        filter
+                                        title="Lista quattro"
+                                        pagination={bool}
+                                        paginationPerPage={nRows}
+                                        theme="mioTema"
+                                    />
+                                </DataTableExtensions></Panel>
+                        </PanelList>
+                    </Tabs>
 
-                <div className='card' style={{ paddingLeft: 30, paddingRight: 30 }}>
-                    <MaterialTable
 
-                        className='cdescription text-center card'
-                        columns={[
-                            { title: 'Completed', field: 'completed', searchable: false, headerStyle:{
-                                fontSize:25
-                            }},
-                            { title: 'confirm', field: 'confirm', searchable: false },
-                            { title: 'Valid', field: 'valid', searchable: false },
-                            { title: 'Type', field: 'type', type: 'int' },
-                            { title: 'Touch_event', field: 'touche_event', searchable: false },
-                            { title: 'Stop', field: 'stop', render: row => (<Moment tz='Europe/Rome' format="hh:mm:ss">{row.stop}</Moment>), searchable: false },
-                            { title: 'Start', field: 'start', render: row => (<Moment tz='Europe/Rome' format="hh:mm:ss">{row.start}</Moment>), searchable: false }
 
-                        ]}
-                        data={this.state.info.tests}
-                        title="Lista Tests"
-                        options={{
-                            
-                            // headerStyle:{fontSize:24},
-                            // searchFieldStyle:{fontSize:25},
-                            exportCsv: true,
-                            exportButton: true,
-                            rowStyle: {
-                                backgroundColor: '#EEE',
-                            }
-                        }}
-                    />
+
                 </div>
 
 
-                <div className='cdescription text-center card'>
-                    Pippo mioooo
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <div style={{ textAlign: 'center', background: 'white', boxShadow: '1px 0px 0px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1)' }} >
+                    <h1> Ci son anche io</h1>
+                </div>
 
             </div >
 
@@ -203,36 +250,7 @@ export default Session
 
 
 
-                // complete: snapshot.toJSON().complete,
-                // end: snapshot.toJSON().end_time.time,
-                // start: snapshot.toJSON().start_time.time,
-                // events: Object.values(snapshot.toJSON().events),
-                // tests: Object.values(snapshot.toJSON().tests)
 
 
 
-                // <DataTable
-                // paginationComponentOptions={{ noRowsPerPage: true }}
-                // filter
-                // title="Lista Tests"
-                // pagination={bool}
-                // paginationPerPage={nRows}
-                // theme="mioTema"
-                // columns={columns}
-                // data={this.state.info.tests} />
 
-
-
-            //     <Tabs >
-            //     <TabList className='cdescription text-center card'>
-            //         <Tab>Tab1</Tab>
-            //         <Tab>Tab2</Tab>
-            //     </TabList>
-            //     <PanelList>
-            //         <Panel>
-
-            //         </Panel>
-
-            //         <Panel>Content2</Panel>
-            //     </PanelList>
-            // </Tabs>
