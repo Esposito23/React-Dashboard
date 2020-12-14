@@ -232,19 +232,22 @@ export class Session extends Component {
 
                 </div>
 
-                <div style= {{ paddingTop: 20 }} >
+                <div style={{ paddingTop: 20 }} >
                     <h1>Label GSR</h1>
                     <ChartistGraph
-                        className = 'card'
-                        style={{paddingTop: 20 ,paddingBottom :20}}
+                        className='card'
+                        style={{ paddingTop: 20, paddingBottom: 20 }}
                         data={this.state.gsr}
                         type="Line"
                         options={{
                             height: "345px",
+
+                            lineSmooth: false,
+                            showLine: true,
                             showPoint: true,
-                            axisX: {
+                            fullWidth: true, axisX: {
                                 showGrid: false,
-                                showLabel : false
+                                showLabel: false
                             },
                             chartPadding: {
                                 right: 50
@@ -256,19 +259,25 @@ export class Session extends Component {
                 </div>
 
 
-                <div style= {{ paddingTop: 20 }} >
+                <div style={{ paddingTop: 20 }} >
                     <h1>Label Temp</h1>
                     <ChartistGraph
-                        className = 'card'
-                        style={{paddingTop: 20 ,paddingBottom :20}}
+                        className='card'
+                        style={{ paddingTop: 20, paddingBottom: 20 ,
+                            color : 'red' }}
                         data={this.state.temp}
                         type="Line"
+                        
                         options={{
+            
                             height: "345px",
+                            lineSmooth: false,
+                            showLine: true,
                             showPoint: true,
+                            fullWidth: true,
                             axisX: {
                                 showGrid: false,
-                                showLabel : false
+                                showLabel: false
 
                             },
                             chartPadding: {
@@ -281,16 +290,20 @@ export class Session extends Component {
 
 
 
-                <div style= {{ paddingTop: 20 }} >
+                <div style={{ paddingTop: 20 }} >
                     <h1>Label HR</h1>
                     <ChartistGraph
-                        className = 'card'
-                        style={{paddingTop: 20 ,paddingBottom :20}}
+
+                        className='card'
+                        style={{ paddingTop: 20, paddingBottom: 20 }}
                         data={this.state.hr}
                         type="Line"
                         options={{
+
                             height: "345px",
+                            lineSmooth: false,
                             showPoint: true,
+                            fullWidth: true, 
                             axisX: {
                                 showLabel: false,
 

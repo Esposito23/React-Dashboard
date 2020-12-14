@@ -48,7 +48,7 @@ class Sidebar extends Component {
         <div className="sidebar-wrapper">
           <ul className="nav">
             {this.props.routes.map((prop, key) => {
-              if (prop.layout === this.props.view)
+              if (prop.layout === this.props.view && prop.path !== '/session')
                 return (
                   <li key={key}>
                     <NavLink

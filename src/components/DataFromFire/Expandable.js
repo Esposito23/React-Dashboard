@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export class Prova extends Component {
+export class Expandable extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -40,7 +40,7 @@ export class Prova extends Component {
                         <hr />
                         {this.state.session.map(k =>
                             <li key={k.key}>
-                                <Link to={{ pathname: "/admin/session",
+                                <Link to={{ pathname: "session",
                                     state: {
                                         keySub: this.props.data.key,
                                         keySess: k.key,
@@ -64,6 +64,6 @@ export class Prova extends Component {
 }
 
 
-export default Prova
+export default Expandable
 
 

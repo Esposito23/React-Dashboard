@@ -10,10 +10,11 @@ import { withAuthentication } from '../Session';
 const App = () => (
   <Router>
     <div>
+
       <Route path="/admin/" render={props => <AdminLayout {...props} />} />
       <Route path="/free/" render={props => <FreeUser {...props} />} />
-      <Route exact path='/signup'component={Signup} />
-      <Route exact path='/'component={Navigation} />
+      <Route exact path='/signup' component={Signup} />
+      <Route exact path='/' component={Navigation} />
     </div>
   </Router>
 );

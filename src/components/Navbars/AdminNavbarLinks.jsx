@@ -20,7 +20,7 @@ class AdminNavbarLinks extends Component {
     );
     
     return (
-      <div>
+      <div >
         <Nav>
           <NavItem eventKey={1} href="#">
             <i className="fa fa-dashboard" />
@@ -55,7 +55,7 @@ class AdminNavbarLinks extends Component {
             <MenuItem divider />
             <MenuItem eventKey={2.5}>Opzione Separata</MenuItem>
           </NavDropdown>
-          <Button />
+          <Button id="basic-nav-dropdown-right"/>
         </Nav>
       </div>
     );

@@ -54,7 +54,7 @@ class Admin extends Component {
       if (
         this.props.location.pathname.indexOf(
           routes[i].layout + routes[i].path
-        ) !== -1
+        ) !== -1 
       ) {
         return routes[i].name;
       }

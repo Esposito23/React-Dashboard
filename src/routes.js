@@ -52,7 +52,7 @@ const dashboardRoutes = [
   },
   {
     path: "/data",
-    name: "Firebase_data",
+    name: "Data from Firebase",
     icon: "pe-7s-piggy",
     component: Firebase,
     layout: "/admin"

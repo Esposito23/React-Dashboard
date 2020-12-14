@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DataTable, { createTheme } from 'react-data-table-component';
 import Fire from 'firebase'
-import Prova from './Prova'
+import Expandable from './Expandable'
 
 createTheme('mioTema', {
   text: {
@@ -12,11 +12,11 @@ createTheme('mioTema', {
   }
 });
 
-const nRows = 5
+const nRows = 10
 const bool = true
 
 
-class App extends Component {
+class Subjects extends Component {
   constructor(props) {
     super()
     this.state = {
@@ -83,7 +83,7 @@ class App extends Component {
         columns={columns}
         expandableRows={bool}
         expandOnRowClicked
-        expandableRowsComponent= {<Prova />}
+        expandableRowsComponent= {<Expandable />}
         />
     </div>
       </div >
@@ -91,18 +91,8 @@ class App extends Component {
   }
 }
 
-export default App
+export default Subjects
 
 
 
 
-
-// export default function MyDataTable({data, ...props}) {
-//     return <Datatable 
-//         expandableRows
-//         expandableRowsComponent={<MyDataTable className="ml-3"/>}
-//         noTableHead={!!data}
-//         noHeader={!!data}
-//         {...props}
-//     />
-// }
