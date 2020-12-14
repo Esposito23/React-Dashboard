@@ -24,7 +24,7 @@ import {
 
 class Dashboard extends Component {
 
-
+  
   createLegend(json) {
     var legend = [];
     for (var i = 0; i < json["names"].length; i++) {
@@ -33,6 +33,7 @@ class Dashboard extends Component {
       legend.push(" ");
       legend.push(json["names"][i]);
     }
+    console.log(dataSales)
     return legend;
   }
   render() {
