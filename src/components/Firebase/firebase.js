@@ -2,14 +2,14 @@ import app from 'firebase/app';
 import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyDrKWmw1O8nwROwbmYoUEOJyZoUACH_HqM",
-  authDomain: "dashboard-8447b.firebaseapp.com",
-  databaseURL: "https://dashboard-8447b.firebaseio.com",
-  projectId: "dashboard-8447b",
-  storageBucket: "dashboard-8447b.appspot.com",
-  messagingSenderId: "322823990268",
-  appId: "1:322823990268:web:fca428b808ffeeb63e6079",
-  measurementId: "G-0L4HFFHZES",
+  apiKey: "#################################",
+  authDomain: "#################################",
+  databaseURL: "#################################",
+  projectId:"#################################",
+  storageBucket: "#################################",
+  messagingSenderId: "#################################",
+  appId: "#################################",
+  measurementId: "#################################",
 };
 
 class Firebase {
