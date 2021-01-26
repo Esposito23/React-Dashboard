@@ -15,14 +15,15 @@ import { withAuthorization } from '../components/Session/';
 
 import routes from "routes.js";
 
-import image from "assets/img/superPeter.png";
+// import image from "assets/img/superPeter.png";
+import image from "assets/img/loading-bubbles.svg";
 
 class Admin extends Component {
   constructor(props) {
     super();
     this.state = {
       image: image,
-      color: "black",
+      color: "white",
       hasImage: true,
       fixedClasses: "dropdown show-dropdown open"
     };

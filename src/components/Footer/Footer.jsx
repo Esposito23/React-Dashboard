@@ -23,9 +23,9 @@ class Footer extends Component {
           <p className="copyright pull-right">
             &copy; {new Date().getFullYear()}{" "}
             <a href="https://www.biotecnomed.it/">
-              Progetto Zero punta a BTM
+              Naditemm
             </a>
-            , made with ass
+            
           </p>
         </Grid>
       </footer>
